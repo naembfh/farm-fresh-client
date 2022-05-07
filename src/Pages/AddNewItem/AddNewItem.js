@@ -45,6 +45,7 @@ const AddNewItem = () => {
   <input className='mb-2' placeholder='Email' value={user?.email}  type="email" {...register("email", )} />
   <input className='mb-2' placeholder='' type="submit" />
 </form>
+<ToastContainer></ToastContainer>    
 
     </div>
     );

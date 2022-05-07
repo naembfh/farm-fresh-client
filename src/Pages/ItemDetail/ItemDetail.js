@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { Navigate, useLocation, useParams } from 'react-router-dom';
-import auth from '../../firebase.init';
-import useVegetableDetail from '../../Hooks/useVegetableDetail';
+import { useParams } from 'react-router-dom';
+
+
+
 
 const ItemDetail = () => {
     const {id}=useParams();

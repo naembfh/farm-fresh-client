@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import useVegetables from '../../Hooks/useVegetables';
 import InventoryItem from '../InventoryItem/InventoryItem';
 
 const InventoryItems = () => {
-    const [inventoryItems,setInventoryItems]=useState([]);
-    useEffect(()=>{
-        const url='http://localhost:5000/vegetable'
-        fetch(url)
-        .then(res=>res.json())
-        .then(data=>setInventoryItems(data))
-    },[])
+    const [inventoryItems,setInventoryItems]=useVegetables([])
     const Navigate=useNavigate()
     const navigateToDetail=(id)=>{
 Navigate( `/inventory/${id}`)

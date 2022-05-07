@@ -21,13 +21,20 @@ const Header = () => {
     <Nav className="me-auto">
     
     </Nav>
-    <Nav> 
+    <Nav>  
+      <Nav.Link as={Link} to='/' href="#pricing">Home</Nav.Link>
+      {
+      user && <Nav.Link as={Link} to='/additem' href="#deets">Add new item</Nav.Link>
+      }
+      {
+        user && <Nav.Link as={Link} to='/manageinventory' href="#deets">Manage Inventory</Nav.Link>
+      }
       {
         user &&<Nav.Link as={Link} to='/myitem' href="#features">My item</Nav.Link>
       }
      
-      <Nav.Link as={Link} to='/' href="#pricing">Home</Nav.Link>
-      {user && <Nav.Link as={Link} to='/additem' href="#deets">Add new item</Nav.Link>}
+     
+      
      
      {
                 user ? <button onClick={logout}>SignOut</button>: < Nav.Link as={Link} to='/login' eventKey={2} href="#memes">
