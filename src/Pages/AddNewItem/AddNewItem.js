@@ -1,9 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import { useForm } from "react-hook-form";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+
 
 
 const AddNewItem = () => {
+    const [user, loading, error] = useAuthState(auth);
+
     const { register, handleSubmit } = useForm();
     const onSubmit = data =>{
       console.log(data)
@@ -31,7 +36,8 @@ const AddNewItem = () => {
   <input className='mb-2' placeholder='Price' type="number" {...register("price", )} />
   <input className='mb-2' placeholder='Photo url' type="text" {...register("img", )} />
   <input className='mb-2' placeholder='Description' type="text" {...register("description", )} />
-  <input className='mb-2' placeholder='Supplier' type="email" {...register("supplier", )} />
+  <input className='mb-2' placeholder='Supplier'  type="Text" {...register("supplier", )} />
+  <input className='mb-2' placeholder='Email' value={user.email}  type="email" {...register("email", )} />
   <input className='mb-2' placeholder='' type="submit" />
 </form>
 

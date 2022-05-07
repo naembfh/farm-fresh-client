@@ -11,6 +11,8 @@ import RequireAuth from './Pages/Login/Login/RequireAuth/RequireAuth';
 import ItemDetail from './Pages/ItemDetail/ItemDetail';
 import NotFound from './Pages/NotFound/NotFound';
 import MyItem from './Pages/MyItem/MyItem';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function App() {
@@ -36,7 +38,7 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
-      <ToastContainer></ToastContainer>
+     
     </div>
   );
 }

@@ -1,43 +1,77 @@
 import React, { useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+
 import auth from '../../../firebase.init';
+import Loadding from '../../Share/Loadding/Loadding';
+
 import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
-  let location = useLocation();
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [emailBlur,setEamilBlur]=useState('')
+const  handleEmailBlur=(e)=>{
+  setEamilBlur(e.target.value)
+}
   let from = location.state?.from?.pathname || "/";
-    const [
+  let errorElement;
+  const [
       signInWithEmailAndPassword,
       user,
       loading,
       error,
-    ] = useSignInWithEmailAndPassword(auth);
-    const Navigate=useNavigate()
-    const handleSignIn=(e)=>{
-        e.preventDefault()
-        const email=e.target.email.value
-        const password=e.target.password.value
-        signInWithEmailAndPassword(email, password)
-    }
-    if(user){
-      Navigate(from, { replace: true });
+  ] = useSignInWithEmailAndPassword(auth);
 
-    }
-    const navigateToRegister=()=>{
-Navigate('/register')
-    }
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+  if(loading || sending){
+return <Loadding></Loadding>
+  }
+
+  if (user) {
+      navigate(from, { replace: true });
+  }
+
+  if (error) {
+      errorElement = <p>Error: 'Email and Password Do not match'</p>
+  }
+
+  const handleSignIn=(e)=>{
+    e.preventDefault()
+    const email=e.target.email.value
+    const password=e.target.password.value
+    signInWithEmailAndPassword(email, password)
+}
+
+const navigateToRegister=()=>{
+  navigate('/register')
+      }
+
+  const resetPassword = async () => {
+    
+      if (emailBlur) {
+          await sendPasswordResetEmail(emailBlur);
+          toast('Sent email');
+      }
+      else{
+          toast('Please enter your email address');
+      }
+  }
     return (
         <div>
 <form onSubmit={handleSignIn}>
-<input type="email" name="email" placeholder='Email' id="" />
-  <input type="password" name="password" placeholder='Password' id="" />
+<input type="email" onBlur={handleEmailBlur} name="email" placeholder='Email' id="" required/>
+  <input type="password" name="password" placeholder='Password' id="" required />
   <input type="submit" value="Login" />  
 </form>
+{errorElement}
 <p>New to shop? <button onClick={navigateToRegister}>Please register first</button></p>
+<p>Forget Password? <button className='btn btn-link text-primary pe-auto text-decoration-none' onClick={resetPassword}>Reset Password</button> </p>
 <hr />
 <SocialLogin></SocialLogin>
+<ToastContainer></ToastContainer>
         </div>
     );
 };
