@@ -22,7 +22,7 @@ const ItemDetail = () => {
         fetch(url)
         .then(res=>res.json())
         .then(data=>setVegetable(data))
-    },[])
+    },[quantity])
     
    
 
@@ -31,24 +31,22 @@ const ItemDetail = () => {
         e.preventDefault()
         const addQuantity=e.target.quantity.value
         console.log(addQuantity)
-        setNewquantity(addQuantity)
-
-    }
-    useEffect(()=>{
+        const updateQuantity={...quantity,addQuantity}
         const url =`http://localhost:5000/vegetable/${id}`
         fetch(url,{
             method: 'PUT', 
             headers: {
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify({newquantity})  
+              body: JSON.stringify(updateQuantity)  
         })
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
         })
-        
-    },[])
+
+    }
+
   
     return (
         <div className='mx-auto'>

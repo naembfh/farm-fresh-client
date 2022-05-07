@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import InventoryItem from '../InventoryItem/InventoryItem';
 
 const InventoryItems = () => {
@@ -10,17 +10,22 @@ const InventoryItems = () => {
         .then(res=>res.json())
         .then(data=>setInventoryItems(data))
     },[])
+    const Navigate=useNavigate()
+    const navigateToDetail=(id)=>{
+Navigate( `/inventory/${id}`)
+    }
     return (
        <div>
             <div className='container '>
             {
-                inventoryItems.map(vegetable=> <InventoryItem
+                inventoryItems.slice(0,6).map(vegetable=> <InventoryItem
                 key={vegetable._id}
                 vegetable={vegetable}
+                navigateToDetail={navigateToDetail}
                 ></InventoryItem>)
             }
         </div>
-        <Link to='/invetory/:id'>Manage Inventory</Link>
+        <Link to='manageInventory'>Manage Inventory</Link>
        </div>
     );
 };

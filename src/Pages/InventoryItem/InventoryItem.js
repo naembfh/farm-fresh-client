@@ -1,7 +1,10 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const InventoryItem = ({vegetable}) => {
+    const [user]=useAuthState(auth)
     console.log(vegetable)
     const {_id,Name,img,price,quantity,description,supplier}=vegetable;
     const Navigate=useNavigate()
@@ -17,7 +20,7 @@ Navigate( `/inventory/${id}`)
     <div class="col">
      {Name}
     </div>
-    <div class="col-5 .text-truncate">
+    <div class="col-4 .text-truncate">
       {description}
     </div>
     <div class="col">
@@ -33,6 +36,11 @@ Navigate( `/inventory/${id}`)
     <div class="col">
      <button onClick={()=>navigateToDetail(_id)}>Stock Update</button>
     </div>
+  {
+      user && <div class="col">
+     <button onClick={()=>navigateToDetail(_id)}>Delete</button>
+    </div>
+  }  
             
         </div>
     );
