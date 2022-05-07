@@ -31,14 +31,16 @@ const ItemDetail = () => {
         e.preventDefault()
         const addQuantity=e.target.quantity.value
         console.log(addQuantity)
+        // setNewquantity(addQuantity)
         const updateQuantity={...quantity,addQuantity}
+        setNewquantity(updateQuantity)
         const url =`http://localhost:5000/vegetable/${id}`
         fetch(url,{
             method: 'PUT', 
             headers: {
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify(updateQuantity)  
+              body: JSON.stringify(newquantity)  
         })
         .then(res=>res.json())
         .then(data=>{
