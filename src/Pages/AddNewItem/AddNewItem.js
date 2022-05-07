@@ -3,11 +3,16 @@ import { toast, ToastContainer } from 'react-toastify';
 import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const AddNewItem = () => {
     const [user, loading, error] = useAuthState(auth);
+    const navigate=useNavigate()
+    if(!user){
+        navigate('/')
+    }
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data =>{
@@ -37,7 +42,7 @@ const AddNewItem = () => {
   <input className='mb-2' placeholder='Photo url' type="text" {...register("img", )} />
   <input className='mb-2' placeholder='Description' type="text" {...register("description", )} />
   <input className='mb-2' placeholder='Supplier'  type="Text" {...register("supplier", )} />
-  <input className='mb-2' placeholder='Email' value={user.email}  type="email" {...register("email", )} />
+  <input className='mb-2' placeholder='Email' value={user?.email}  type="email" {...register("email", )} />
   <input className='mb-2' placeholder='' type="submit" />
 </form>
 
