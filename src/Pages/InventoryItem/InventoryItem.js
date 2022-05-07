@@ -11,7 +11,20 @@ const InventoryItem = ({vegetable}) => {
     const navigateToDetail=(id)=>{
 Navigate( `/inventory/${id}`)
     }
-   
+   const handleDelete=(id)=>{
+       const procced=window.confirm('Are you sure?')
+       if(procced){
+           console.log(id)
+           const url =`http://localhost:5000/vegetable/${id}`
+fetch(url,{
+    method:"DELETE"
+})
+.then(res=>res.json())
+.then(data=>{
+    console.log(data)
+})
+       }
+   }
     return (
         <div className='row align-items-center mb-3 py-2 border border-success rounded'>
             <div class="col">
@@ -38,7 +51,7 @@ Navigate( `/inventory/${id}`)
     </div>
   {
       user && <div class="col">
-     <button onClick={()=>navigateToDetail(_id)}>Delete</button>
+     <button onClick={()=>handleDelete(_id)} >Delete</button>
     </div>
   }  
             
