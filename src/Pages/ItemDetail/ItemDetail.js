@@ -24,31 +24,48 @@ const ItemDetail = () => {
         .then(data=>setVegetable(data))
     },[quantity])
     
-   
-
-   
-    const handleQuantity=(e)=>{
+  const handleQuantity=(e)=>{
         e.preventDefault()
         const addQuantity=e.target.quantity.value
         console.log(addQuantity)
+        const newquantity=parseInt(addQuantity)+quantity
+        console.log(newquantity)
         // setNewquantity(addQuantity)
-        const updateQuantity={...quantity,addQuantity}
-        setNewquantity(updateQuantity)
+       
+        // setNewquantity(updateQuantity)
         const url =`http://localhost:5000/vegetable/${id}`
         fetch(url,{
             method: 'PUT', 
             headers: {
                 'Content-Type': 'application/json',
               },
-              body: JSON.stringify(newquantity)  
+              body: JSON.stringify({newquantity})  
         })
         .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
+        .then(result=>{
+            console.log(result)
+            setVegetable(result)
         })
 
     }
+const handleDeliver=()=>{
+    const newquantity=quantity-1
+        console.log(newquantity)
+        const url =`http://localhost:5000/vegetable/${id}`
+        fetch(url,{
+            method: 'PUT', 
+            headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({newquantity})  
+        })
+        .then(res=>res.json())
+        .then(result=>{
+            console.log(result)
+            setVegetable(result)
+        })
 
+}
   
     return (
         <div className='mx-auto'>
@@ -65,8 +82,10 @@ const ItemDetail = () => {
     <Card.Text>
      {quantity} Kg
     </Card.Text>
-    <Button  variant="primary">Deliverd</Button>
-    
+   {
+       vegetable[quantity] <= 0 ?<h1>sold</h1> :<Button onClick={handleDeliver}  variant="primary">Deliverd</Button>
+   }
+    {/* <Button onClick={handleDeliver}  variant="primary">Deliverd</Button> */}
   </Card.Body>
   <form onSubmit={handleQuantity}>
     <input type="text" name="quantity" id="" />

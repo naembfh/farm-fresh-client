@@ -11,24 +11,19 @@ Navigate( `/inventory/${id}`)
     }
     return (
        <div>
-            <div className='container '>
-                <div className='row-md d-md-flex d-sm-none d-md-block'>
-                    <div className='col '>col</div>
-                    <div className='col'>col</div>
-                    <div className='col-4'>col</div>
-                    <div className='col'>col</div>
-                    <div className='col'>col</div>
-                    <div className='col'>col</div>
-                </div>
-            {
+            <div className='mt-3' >
+               
+           <div className='container mt-5 '>
+           {
                 inventoryItems.slice(0,6).map(vegetable=> <InventoryItem
                 key={vegetable._id}
                 vegetable={vegetable}
                 navigateToDetail={navigateToDetail}
                 ></InventoryItem>)
             }
+           </div>
         </div>
-        <Link to='manageInventory'>Manage Inventory</Link>
+        <Link to='manageInventory'><button >Manage Inventory</button></Link>
        </div>
     );
 };

@@ -13,6 +13,8 @@ import NotFound from './Pages/NotFound/NotFound';
 import MyItem from './Pages/MyItem/MyItem';
 import 'react-toastify/dist/ReactToastify.css';
 import ManageInventory from './Pages/ManageInventory/ManageInventory';
+import Footer from './Pages/Share/Footer/Footer';
+import Blogs from './Pages/Blogs/Blogs';
 
 
 
@@ -40,11 +42,12 @@ function App() {
             <ManageInventory></ManageInventory>
           </RequireAuth>
         }></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
-     
+     <Footer></Footer>
     </div>
   );
 }

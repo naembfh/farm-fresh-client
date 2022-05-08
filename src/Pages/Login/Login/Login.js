@@ -60,8 +60,8 @@ const navigateToRegister=()=>{
       }
   }
     return (
-       <div className='bg-primary'>
-          <div className='w-50 mx-auto'>
+       <div className='mt-5'>
+          <div className='w-50 pt-2 mx-auto'>
           <h1>Login</h1>
 <form className='d-flex flex-column' onSubmit={handleSignIn}>
   <input className='mb-2'  type="email" onBlur={handleEmailBlur} name="email" placeholder='Email' id="" required/>

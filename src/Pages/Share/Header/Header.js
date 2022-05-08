@@ -13,9 +13,9 @@ const Header = () => {
     
     return (
         <div>
-           <Navbar className='nav' collapseOnSelect expand="lg" bg="success" variant="dark">
+           <Navbar className='nav fixed-top' collapseOnSelect expand="lg" bg="success" variant="dark">
   <Container className='d-flex' >
-  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+  <Navbar.Brand as={Link} to='/' href="#home">Farm Fresh</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
@@ -34,13 +34,14 @@ const Header = () => {
       }
      
      
-      
+     <Nav.Link as={Link} to='/blogs' href="#features">Blogs</Nav.Link>
      
      {
                 user ? <button onClick={logout}>SignOut</button>: < Nav.Link as={Link} to='/login' eventKey={2} href="#memes">
                 Login
               </Nav.Link>
             }
+  
   
     </Nav>
 

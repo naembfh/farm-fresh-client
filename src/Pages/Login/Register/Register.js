@@ -38,17 +38,18 @@ navigate('/login')
    }
 
     return (
-        <div>
-         <form onSubmit={handleCreateUser}>
-             <input type="text" name="name" placeholder='Name' id="" />
-         <input type="email" name="email" placeholder='Email' id="" />
-  <input type="password" name="password" placeholder='Password' id="" />
-  <input type="password" name="confirmPassword" placeholder='Confirm Password' id="" />
+        <div className='mt-5 pt-2 w-50 mx-auto'>
+          <h1>Register</h1>
+         <form className='d-flex flex-column' onSubmit={handleCreateUser}>
+   <input className='mb-2'  type="text" name="name" placeholder='Name' id="" />
+   <input className='mb-2'  type="email" name="email" placeholder='Email' id="" />
+  <input  className='mb-2' type="password" name="password" placeholder='Password' id="" />
+  <input  className='mb-2' type="password" name="confirmPassword" placeholder='Confirm Password' id="" />
   
   <input type="submit" value="Register" /> 
 
              </form> 
-             <p>Already have an account? <button onClick={navigateToLogin}>Please Login</button></p>
+             <p className='mt-2'>Already have an account? <button onClick={navigateToLogin}>Please Login</button></p>
              <ToastContainer></ToastContainer>
         </div>
     );

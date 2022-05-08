@@ -35,7 +35,7 @@ fetch(url,{
        }
    }
     return (
-        <div className='row d-md-flex flex-md-row d-sm-flex flex-sm-column align-items-center mb-3 py-2 border border-success rounded'>
+        <div className='row d-md-flex flex-md-row d-sm-flex flex-sm-column align-items-center mb-3 py-2 border border-success rounded mt-5'>
             <div class="col-md col-sm-12">
       <img className=' rounded' src={img} style={{height:"100px"}} alt="" srcset="" />
           </div>
