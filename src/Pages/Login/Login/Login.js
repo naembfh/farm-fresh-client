@@ -60,11 +60,13 @@ const navigateToRegister=()=>{
       }
   }
     return (
-        <div>
-<form onSubmit={handleSignIn}>
-<input type="email" onBlur={handleEmailBlur} name="email" placeholder='Email' id="" required/>
-  <input type="password" name="password" placeholder='Password' id="" required />
-  <input type="submit" value="Login" />  
+       <div className='bg-primary'>
+          <div className='w-50 mx-auto'>
+          <h1>Login</h1>
+<form className='d-flex flex-column' onSubmit={handleSignIn}>
+  <input className='mb-2'  type="email" onBlur={handleEmailBlur} name="email" placeholder='Email' id="" required/>
+  <input className='mb-2' type="password" name="password" placeholder='Password' id="" required />
+  <input className='mb-2' type="submit" value="Login" />  
 </form>
 {errorElement}
 <p>New to shop? <button onClick={navigateToRegister}>Please register first</button></p>
@@ -73,6 +75,7 @@ const navigateToRegister=()=>{
 <SocialLogin></SocialLogin>
 <ToastContainer></ToastContainer>
         </div>
+       </div>
     );
 };
 

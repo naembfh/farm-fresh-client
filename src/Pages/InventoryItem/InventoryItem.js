@@ -35,31 +35,31 @@ fetch(url,{
        }
    }
     return (
-        <div className='row align-items-center mb-3 py-2 border border-success rounded'>
-            <div class="col">
+        <div className='row d-md-flex flex-md-row d-sm-flex flex-sm-column align-items-center mb-3 py-2 border border-success rounded'>
+            <div class="col-md col-sm-12">
       <img className=' rounded' src={img} style={{height:"100px"}} alt="" srcset="" />
           </div>
-    <div class="col">
+    <div class="col-md col-sm-12">
      {Name}
     </div>
-    <div className="col-4 title">
+    <div className="col-md-4 col-sm-12 title">
       {description.length>200 ? description.slice(0,200) + "...." :''}
     </div>
-    <div class="col">
+    <div class="col-md col-sm-12">
     {price} Rm / Kg
     </div>
-    <div class="col">
+    <div class="col-md col-sm-12">
       {quantity} Kg
     </div>
-    <div class="col-2">
+    <div class="col-md col-sm-12">
      {supplier}
     </div>
     
-    <div class="col">
+    <div class="col-md col-sm-12">
      <button onClick={()=>navigateToDetail(_id)}>Stock Update</button>
     </div>
   {
-      user && <div class="col">
+      user && <div class="col-md col-sm-12">
      <button onClick={()=>handleDelete(_id)} >Delete</button>
     </div>
   }  

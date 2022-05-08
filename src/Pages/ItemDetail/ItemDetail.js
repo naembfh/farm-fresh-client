@@ -68,11 +68,12 @@ const ItemDetail = () => {
     <Button  variant="primary">Deliverd</Button>
     
   </Card.Body>
-</Card>
-<form onSubmit={handleQuantity}>
+  <form onSubmit={handleQuantity}>
     <input type="text" name="quantity" id="" />
     <input type="submit" value="Add Quantity" />
 </form>
+</Card>
+
 
         </div>
     );
