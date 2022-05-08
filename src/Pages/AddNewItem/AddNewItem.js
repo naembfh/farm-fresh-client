@@ -17,7 +17,7 @@ const AddNewItem = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data =>{
       console.log(data)
-      const url=`http://localhost:5000/vegetable`
+      const url=`https://fathomless-brushlands-62853.herokuapp.com/vegetable`
       fetch(url,{
           method:"POST",
           headers:{
@@ -30,7 +30,9 @@ const AddNewItem = () => {
   .then(result=>{
       console.log(result)
       toast('Data added')
-  })
+  
+    })
+    
     };
     return (
         <div className='w-50 mx-auto mt-5'>

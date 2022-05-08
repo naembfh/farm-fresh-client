@@ -18,12 +18,13 @@ Navigate( `/inventory/${id}`)
        const procced=window.confirm('Are you sure you want to delete?')
        if(procced){
            console.log(id)
-           const url =`http://localhost:5000/vegetable/${id}`
+           const url =`https://fathomless-brushlands-62853.herokuapp.com/vegetable/${id}`
 fetch(url,{
     method:"DELETE"
 })
 .then(res=>res.json())
 .then(data=>{
+    console.log(data)
     if(data.deletedCount>0){ 
         toast('Vegetable deleted')
         console.log('deleted')

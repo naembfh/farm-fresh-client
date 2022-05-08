@@ -18,7 +18,7 @@ const ItemDetail = () => {
     
 
     useEffect(()=>{
-        const url= `http://localhost:5000/vegetable/${id}`
+        const url= `https://fathomless-brushlands-62853.herokuapp.com/vegetable/${id}`
         fetch(url)
         .then(res=>res.json())
         .then(data=>setVegetable(data))
@@ -33,7 +33,7 @@ const ItemDetail = () => {
         // setNewquantity(addQuantity)
        
         // setNewquantity(updateQuantity)
-        const url =`http://localhost:5000/vegetable/${id}`
+        const url =`https://fathomless-brushlands-62853.herokuapp.com/vegetable/${id}`
         fetch(url,{
             method: 'PUT', 
             headers: {
@@ -46,12 +46,12 @@ const ItemDetail = () => {
             console.log(result)
             setVegetable(result)
         })
-
+e.target.reset()
     }
 const handleDeliver=()=>{
     const newquantity=quantity-1
         console.log(newquantity)
-        const url =`http://localhost:5000/vegetable/${id}`
+        const url =`https://fathomless-brushlands-62853.herokuapp.com/vegetable/${id}`
         fetch(url,{
             method: 'PUT', 
             headers: {
@@ -83,10 +83,10 @@ const handleDeliver=()=>{
     <Card.Text>
      {quantity} Kg
     </Card.Text>
-   {
+   {/* {
        vegetable[quantity] <= 0 ?<h1>sold</h1> :<Button onClick={handleDeliver}  variant="primary">Deliverd</Button>
-   }
-    {/* <Button onClick={handleDeliver}  variant="primary">Deliverd</Button> */}
+   } */}
+    <Button onClick={handleDeliver}  variant="primary">Deliverd</Button>
   </Card.Body>
   <form onSubmit={handleQuantity}>
     <input type="text" name="quantity" id="" />
