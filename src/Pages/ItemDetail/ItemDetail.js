@@ -68,8 +68,9 @@ const handleDeliver=()=>{
 }
   
     return (
-        <div className='mx-auto'>
-            <Card style={{ width: '18rem' }}>
+       <div>
+            <div className='w-50 mx-auto mt-5'>
+            <Card >
   <Card.Img variant="top" src={img} />
   <Card.Body>
     <Card.Title>{Name}</Card.Title>
@@ -95,6 +96,7 @@ const handleDeliver=()=>{
 
 
         </div>
+       </div>
     );
 };
 

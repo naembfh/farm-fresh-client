@@ -17,7 +17,8 @@ SQL databases are vertically scalable. SQL Databases are categorized as Relation
 On the other hand,NoSQL databases are horizontally scalable.NoSQL databases are categorized as Non-relational or distributed database system.
 
 </p>
-<img src="https://i.ibb.co/Qm3Pk2J/Screenshot-1.png" alt="" srcset="" />
+<h4>Whatever question i try to write on stackoverflow ,I always find simillar question someone asked already.</h4>
+<img className='img-fluid' src="https://i.ibb.co/Qm3Pk2J/Screenshot-1.png" alt="" srcset="" />
 
         </div>
     );

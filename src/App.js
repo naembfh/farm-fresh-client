@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ManageInventory from './Pages/ManageInventory/ManageInventory';
 import Footer from './Pages/Share/Footer/Footer';
 import Blogs from './Pages/Blogs/Blogs';
+import ContactUs from './Pages/Home/Contact/ContactUs';
 
 
 
@@ -45,6 +46,7 @@ function App() {
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/contact' element={<ContactUs></ContactUs>} ></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
      <Footer></Footer>

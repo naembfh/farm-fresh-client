@@ -22,8 +22,9 @@ Navigate( `/inventory/${id}`)
                 ></InventoryItem>)
             }
            </div>
+           <Link to='manageInventory'><button>Manage Inventory</button></Link>
         </div>
-        <Link to='manageInventory'><button >Manage Inventory</button></Link>
+        
        </div>
     );
 };
